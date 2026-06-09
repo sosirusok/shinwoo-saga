@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>신우 사가 — 다운로드</title>
+<style>
+  :root { color-scheme: dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin:0; min-height:100vh; font-family:'Segoe UI','맑은 고딕',sans-serif;
+    background: radial-gradient(circle at 50% 30%, #1a1320 0%, #07060a 70%);
+    color:#e6e2ec; display:flex; flex-direction:column; align-items:center; padding:40px 16px;
+  }
+  h1 { font-size:48px; margin:10px 0 4px; color:#f0d985; text-shadow:0 2px 12px #000; letter-spacing:2px; }
+  .sub { color:#ff8fae; margin-bottom:6px; font-size:18px; }
+  .ver { color:#8a96aa; font-size:14px; margin-bottom:28px; }
+  .card { background:#120f17e6; border:1px solid #51432c; border-radius:14px; padding:26px 28px;
+    max-width:560px; width:100%; box-shadow:0 10px 40px #000a; margin-bottom:18px; }
+  .btn { display:block; text-align:center; text-decoration:none; font-weight:700;
+    border-radius:10px; padding:16px; margin:10px 0; font-size:18px; transition:.15s; border:2px solid; }
+  .dl { background:#2a2012; border-color:#d8b048; color:#ffe79a; }
+  .dl:hover { background:#3a2c14; box-shadow:0 0 16px #d8b04855; }
+  .web { background:#15171f; border-color:#4a6a8a; color:#bcd8ff; }
+  .web:hover { background:#1c2230; }
+  .small { color:#9aa0ad; font-size:13px; }
+  ol { color:#cfc9d8; line-height:1.7; padding-left:20px; }
+  b { color:#ffd98a; }
+  .tag { display:inline-block; background:#2a1f12; border:1px solid #6a532c; color:#f0d985;
+    border-radius:6px; padding:2px 8px; font-size:12px; margin-left:6px; }
+</style>
+</head>
+<body>
+  <h1>신우 사가</h1>
+  <div class="sub">─ 이지수를 구하라 ─</div>
+  <div class="ver">현재 버전: <span id="ver">…</span> · 디아블로2풍 핵앤슬래시 ARPG</div>
+
+  <div class="card">
+    <a class="btn dl" href="https://github.com/sosirusok/shinwoo-saga/releases/download/win-latest/ShinwooSaga.exe">⬇  Windows 다운로드 / 업데이트 (.exe, 약 108MB)</a>
+    <a class="btn web" href="./">🌐  브라우저에서 바로 플레이 (설치 없이)</a>
+    <div class="small" style="text-align:center;margin-top:8px;">데스크톱판이 브라우저보다 렉이 적습니다.</div>
+  </div>
+
+  <div class="card">
+    <b>처음 설치 / 실행</b>
+    <ol>
+      <li>위 <b>Windows 다운로드</b>를 눌러 <b>ShinwooSaga.exe</b>를 받습니다.</li>
+      <li>받은 <b>ShinwooSaga.exe</b>를 더블클릭해 실행 (설치 과정 없음, 단일 실행파일).</li>
+      <li>Windows가 “PC 보호” 경고를 띄우면 → <b>추가 정보</b> → <b>실행</b> (서명 안 된 개인 게임이라 그래요, 안전).</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <b>업데이트 방법 (앱처럼)</b>
+    <ol>
+      <li>게임을 켜면 새 버전이 있을 때 타이틀에 <b>“✨ 새 버전 — 다운로드/업데이트”</b> 버튼이 떠요.</li>
+      <li>그 버튼(또는 이 페이지)에서 <b>다시 다운로드</b>하면 최신 버전입니다.</li>
+      <li>예전 ShinwooSaga.exe를 새로 받은 파일로 덮어쓰면 끝. <b>세이브·랭킹은 클라우드 계정에 저장</b>되어 그대로 이어집니다.</li>
+    </ol>
+    <div class="small">※ 위 다운로드 링크는 항상 최신 빌드를 가리킵니다.</div>
+  </div>
+
+<script>
+  fetch('./version.txt?cb='+Date.now()).then(r=>r.text()).then(t=>{
+    document.getElementById('ver').textContent = 'v' + t.trim();
+  }).catch(()=>{ document.getElementById('ver').textContent = '최신'; });
+</script>
+</body>
+</html>
